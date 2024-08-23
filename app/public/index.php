@@ -59,28 +59,28 @@ else{
 //not req
 }
 */
-$a = 2;
-$b = 5;
+// $a = 2;
+// $b = 5;
 
-if ($a == $b){
-    echo "TRUE";
-}
-else {
-    echo "FALSE";
-}
+// if ($a == $b){
+//     echo "TRUE";
+// }
+// else {
+//     echo "FALSE";
+// }
 
 
-$array = array(
-    "John", 
-    "Mary", 
-    "David",
-);
+// $array = array(
+//     "John", 
+//     "Mary", 
+//     "David",
+// );
 
-$array = [
-    "John", 
-    "Mary", 
-    "David",
-];
+// $array = [
+//     "John", 
+//     "Mary", 
+//     "David",
+// ];
 /*
 $array = [];
 
@@ -108,11 +108,11 @@ foreach ($array as  $value){
 }
 */
 
-$array = [
-    'Russia' => ['Moscow', 'Piter', 'Tula'], 
-    'China' => ['Beigin', 'Shanhay'],
-    'Belorussia' => ['Minsk', 'Brest']
-];
+// $array = [
+//     'Russia' => ['Moscow', 'Piter', 'Tula'], 
+//     'China' => ['Beigin', 'Shanhay'],
+//     'Belorussia' => ['Minsk', 'Brest']
+// ];
 
 /*
 foreach ($array as $capital => $cities) {
@@ -123,28 +123,136 @@ foreach ($array as $capital => $cities) {
    echo '<ul>';
 }*/
 
-foreach ($array as list($a)) {
-    print_r($a);
-}
+// foreach ($array as list($a)) {
+//     print_r($a);
+// }
 
-for ($i =0 ;$i<10; $i++){
-    $a[] = rand();
-};
+// for ($i =0 ;$i<10; $i++){
+//     $a[] = rand();
+// };
 
-print_r ($a);
+// print_r ($a);
 
-usort($a, function($a, $b) {return $a<=> $b;});
+// usort($a, function($a, $b) {return $a<=> $b;});
 
-function nameFunction ($a, $b) {};
+// function nameFunction ($a, $b) {};
 
-function nameFunction1 (int $a, int $b) {};
+// function nameFunction1 (int $a, int $b) {};
 
-function nameFunction2 (int $a = 0, int $b = 0): int {};
+// function nameFunction2 (int $a = 0, int $b = 0): int {};
 
-$function = function (int $a = 0, int $b = 0): int {
-    echo $a, $b;
+// $function = function (int $a = 0, int $b = 0): int {
+//     echo $a, $b;
 
-    return 1;
-};
+//     return 1;
+// };
 
-$function(1, 2);
+// $function(1, 2);
+
+// $array = [
+//     'Russia' => ['capital' => 'Moscow', 'citizen' => 140000], 
+//     'China' => ['capital' =>'Beigin', 'citizen' => 1400000],
+//     'Belorussia' => [ 'capital' =>'Minsk', 'citizen' => 10000]
+// ];
+
+// foreach ($array as $key => list('capital' => $capital,'citizen' => $citizen)) {
+   
+// }
+// $var = '20';
+// $return = '';
+// switch ($var) {
+//     case 'val1':
+//     $return = 'foo_for_var1';
+//     break;
+        
+//     case 'val2':
+//     $return = 'foo_for_var2';
+//     break;
+
+//     case 'val3':
+//         $return = 'foo_for_var3';
+//         break;
+//     default:
+//     $return = 'return';
+//         break;
+// }
+
+// echo $return;
+
+// try {
+//     $return = match ($var) {
+//         "val1" => 'foo_for_var1',
+//         "val2" => 'foo_for_var2',
+//         "val3" => 'foo_for_var3',
+//         20=> '20', 
+//         default => 'default',
+
+//     };
+// } catch (Throwable $e) {
+//     echo "Exeption";
+// }
+
+// echo PHP_EOL;
+// echo $return;
+
+// $var = '20';
+// $return = '';
+
+// $micro = microtime(true);
+
+// echo $micro;
+
+
+// for ($i=0; $i < 10000; $i++) { 
+//     switch ($var) {
+//             case 'val1':
+//             $return = 'foo_for_var1';
+//             break;
+                
+//             case 'val2':
+//             $return = 'foo_for_var2';
+//             break;
+        
+//             case 'val3':
+//                 $return = 'foo_for_var3';
+//                 break;
+//             default:
+//             $return = 'return';
+//                 break;
+//         }
+// }
+
+// echo PHP_EOL;
+// echo microtime(true) - $micro;
+
+//include('../src/Main.php');
+
+//$main = new Main();
+
+// $main -> public = 'changed';
+// $main -> public = 10;
+// var_dump($main -> public);
+
+// var_dump(Main::$ps);
+
+// var_dump($main -> func());
+
+// $int = 5;
+// Main::statFunc($int);
+// echo $int;
+
+//print_r($_GET);
+//print_r($_POST);
+//print_r($_FILES);
+
+//if (isset($_FILES['uploadFile'])){
+ //   move_uploaded_file($_FILES['uploadFile']['tmp_name']['/app/public/'.]);
+//}
+
+
+include ('../src/Main.php');
+
+$main = new Main();
+
+$main-> main();
+?>
