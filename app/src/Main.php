@@ -18,9 +18,10 @@
 use Shop\Customer\Order;
 use Request\Get;
 use Request\Post;
+use Request\Request;
 use Request\Server;
 use Routing\Route;
-//use Controllers\Api\Login;
+use Loading\Autoload;
 
 class Main {
 
@@ -39,11 +40,6 @@ class Main {
 
         echo 'RUN SUCCESFUL';
 
-        //$order = new Order();
-
-        //print_r($this->get);
-        //print_r($this->post);
-
         $namespace = $this->route->getParent();
 
         $base = $this->route->getBase();
@@ -58,25 +54,17 @@ class Main {
                 echo $object->postRequest($this->post);} 
         }
     }
+    
 
     private function init(): void{
-        spl_autoload_register(function($class){
-            $file = __DIR__.'/'.str_replace('\\', '/', $class) . '.php';
 
-            if (file_exists($file)){
-                include($file);
-                return true;
-            }
+    include ('../src/Loading/Autoload.php');
+    Autoload::registrate();
 
-            return false;
-            
-        });
-
-        //$this->request = new Request($_GET, $_POST, $_SERVER);
-
-        $this -> get = new Get($_GET);
-        $this -> post = new Post($_POST);
-        $this->server = new Server($_SERVER);
+        $this->request = new Request(
+            $this->get = new Get($_GET),
+            $this->post = new Post($_POST),
+            $this->server = new Server($_SERVER));
 
         $this->route = new Route($_SERVER['REQUEST_URI']);
     }

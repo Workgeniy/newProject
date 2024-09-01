@@ -2,9 +2,9 @@
 
 namespace Request;
 
-use Exeption;
+use Exception;
 
-class Post{
+class Request{
     private Get $get;
 
     private Post $post;
@@ -19,14 +19,20 @@ class Post{
     }
 
   
-    public function getGet(){
-    return $this->$get;}
+    public function getGet()
+    {
+    return $this->get;
+    }
         
-    public function getPost(){
-    return $this->$post;}
+    public function getPost()
+    {    
+    return $this->post;
+    }
 
-    public function getServer(){
-    return $this->$server;}
+    public function getServer()
+    {
+    return $this->server;
+    }
 
 
 }
