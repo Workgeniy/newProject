@@ -3,6 +3,7 @@
 namespace Database;
 
 use PDO;
+use PDOStatement;
 
 class DB{
     private PDO $pdo;
@@ -48,4 +49,20 @@ class DB{
        }
        return $list;
     }
+
+    public function getOneRowByClass(string $sql, string $class): mixed { 
+ 
+        
+        $result = $this->pdo->query($sql); 
+        
+        $result->setFetchMode(PDO::FETCH_CLASS, $class); 
+         
+        $value = []; 
+ 
+        foreach($result as $item){             
+            $value = $item; 
+        }         
+ 
+        return $value;        
+    } 
 }

@@ -13,19 +13,41 @@ class Login{
     public function postRequest(Post $request): string
     {
 
-      $salt = rand(1000, 9999);
+      //$salt = rand(1000, 9999);
 
-      $password = $request->post("password");
+      //$login = $request->post('login');
 
-      $hash = md5($salt . '|' . $password);
+      //$password = $request->post("password");
 
-      $hash = $salt . '|' . $hash;
+      //$hash = md5($salt . '|' . $password);
 
-      print_r($hash);
-      //die();
-      $allUsers = User::getAllUsers();
-      print_r($allUsers);
-      return '';
+      //$hash = $salt . '|' . $hash;
+
+      if ($request->has("login") && $request->has("password")){
+       
+      
+     // $allUsers = User::getAllUsers();
+
+     // print_r($allUsers);
+
+     $user = User::getUserByLogin($request->post("login"));
+      
+
+      if ($user && 
+      $user->login === $request->post("login") && 
+      $user->password === $request->post("password"))
+      {
+
+        User::updateUser($user->login, md5($user->password));
+
+        return json_encode(["token" => md5($user->password)]);
+      }
+      else
+      {
+        return json_encode(["error" => "Not found"]);
+      }
         
     }
+    return '';
+}
 }
